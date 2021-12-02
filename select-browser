@@ -1,0 +1,10 @@
+#!/bin/sh
+
+BROWSER=$(zenity --list --radiolist --text '' --column='Check' --column='Browser' --column='Command' --title='Select your browser' --width=600 --height=300 --print-column="3" \
+    TRUE "Firefox" "firefox" \
+    FALSE "Chrome" "google-chrome-stable" \
+    # Sample of using chrome with a different user-data-dir
+    #FALSE "Playground - Chrome" "google-chrome-stable --class=google-chrome-playground --user-data-dir=$HOME/.config/google-chrome-playground" \
+)
+
+$BROWSER $* &
